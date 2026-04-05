@@ -33,6 +33,35 @@ Skills also activate automatically based on what you're doing — designing an A
 
 ---
 
+## Universal IDE Integration (MCP)
+
+The most interoperable way to use Agent Skills is via the Model Context Protocol (MCP). This works with **Google Antigravity**, **Zed**, **VS Code (Cline/Roo Code)**, **Cursor**, and **Claude Desktop**.
+
+### 1. Setup MCP Server
+Add the following to your IDE's MCP configuration file (see locations below):
+
+```json
+{
+  "mcpServers": {
+    "agent-skills": {
+      "command": "python",
+      "args": ["/absolute/path/to/agent-skills/mcp_server.py"]
+    }
+  }
+}
+```
+
+### 2. Configuration Locations
+- **Google Antigravity**: `~/.gemini/antigravity/mcp_config.json`
+- **Zed**: `settings.json` (under `context_servers`)
+- **VS Code (Cline)**: Click the **plug icon** ⮕ **Configure** (`cline_mcp_settings.json`)
+- **Claude Desktop**: `~/Library/Application Support/Clade/claude_desktop_config.json` (macOS) or `%APPDATA%\Claude\claude_desktop_config.json` (Windows)
+
+> [!TIP]
+> **Discovery**: Once installed, your agent can run `list_skills` to see all available workflows or `validate_state` to check your project's SDD compliance.
+
+---
+
 ## Quick Start
 
 <details>
